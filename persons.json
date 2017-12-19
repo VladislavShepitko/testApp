@@ -1,0 +1,202 @@
+ [
+  {
+  "id": "59c92a0521f2d2a3670f6c18",
+  "isActive": true,
+  "balance": "$1,677.46",
+  "picture": "http://lorempixel.com/200/300/",
+  "age": 36,
+  "eyeColor": "green",
+  "name": "Latonya Guy",
+  "gender": "female",
+  "company": "ZENTIME",
+  "email": "latonyaguy@zentime.com",
+  "phone": "+1 (868) 509-2179",
+  "address": "518 Herkimer Street, Brandywine, Maine, 1178",
+  "about": "Anim laborum deserunt occaecat ipsum est Lorem laborum anim. Excepteur deserunt magna do quis laboris quis duis ea. Ea irure magna nostrud sit labore proident proident aliqua aliquip incididunt tempor consequat sint.\r\n",
+  "registered": "2014-08-14T11:30:40 -03:00",
+  "tags": [
+           "aliquip",
+           "adipisicing",
+           "dolore",
+           "nulla",
+           "occaecat",
+           "elit",
+           "esse"
+           ],
+  "friends": [
+              {
+              "id": 0,
+              "name": "Nanette Mcdaniel"
+              },
+              {
+              "id": 1,
+              "name": "Velazquez Solomon"
+              },
+              {
+              "id": 2,
+              "name": "Rios Young"
+              }
+              ],
+  "favoriteFruit": "apple"
+  },
+  {
+  "id": "59c92a05bce2264c87ebd79d",
+  "isActive": true,
+  "balance": "$1,693.66",
+  "picture": "http://lorempixel.com/200/300/",
+  "age": 29,
+  "eyeColor": "blue",
+  "name": "Nola Mcdowell",
+  "gender": "female",
+  "company": "VIAGREAT",
+  "email": "nolamcdowell@viagreat.com",
+  "phone": "+1 (878) 452-3690",
+  "address": "360 Boynton Place, Somerset, Nebraska, 341",
+  "about": "Sint occaecat ut qui fugiat est id deserunt quis sint enim proident exercitation. Minim fugiat aliquip elit proident. Ullamco anim nulla ut consequat tempor ullamco exercitation proident tempor exercitation mollit minim velit irure. Esse nisi velit tempor proident. Labore exercitation officia aliqua cillum amet. Exercitation consequat consectetur laborum occaecat deserunt deserunt enim dolore et.\r\n",
+  "registered": "2016-01-23T08:00:41 -02:00",
+  "tags": [
+           "culpa",
+           "reprehenderit",
+           "sit",
+           "commodo",
+           "irure",
+           "excepteur",
+           "nisi"
+           ],
+  "friends": [
+              {
+              "id": 0,
+              "name": "Mccoy Johnston"
+              },
+              {
+              "id": 1,
+              "name": "Robertson Clements"
+              },
+              {
+              "id": 2,
+              "name": "Callahan Burks"
+              }
+              ],
+  "favoriteFruit": "strawberry"
+  },
+  {
+  "id": "59c92a05cb69f868746aa3fe",
+  "isActive": true,
+  "balance": "$1,320.48",
+  "picture": "http://lorempixel.com/200/300/",
+  "age": 25,
+  "eyeColor": "blue",
+  "name": "Gamble Ford",
+  "gender": "male",
+  "company": "SIGNIDYNE",
+  "email": "gambleford@signidyne.com",
+  "phone": "+1 (939) 564-3089",
+  "address": "568 Lyme Avenue, Graball, Texas, 2060",
+  "about": "Ullamco esse elit officia consequat commodo aliquip labore cupidatat do consectetur. Deserunt sit sit adipisicing in incididunt esse proident nostrud voluptate. Qui esse labore eu consectetur id consectetur est nostrud laborum esse.\r\n",
+  "registered": "2014-01-18T09:11:59 -02:00",
+  "tags": [
+           "ullamco",
+           "duis",
+           "deserunt",
+           "aute",
+           "tempor",
+           "id",
+           "magna"
+           ],
+  "friends": [
+              {
+              "id": 0,
+              "name": "Ester Hancock"
+              },
+              {
+              "id": 1,
+              "name": "Lucas Chandler"
+              },
+              {
+              "id": 2,
+              "name": "Fox Casey"
+              }
+              ],
+  "favoriteFruit": "banana"
+  },
+  {
+  "id": "59c92a05bfa3abf496943fa7",
+  "isActive": true,
+  "balance": "$3,127.81",
+  "picture": "http://lorempixel.com/200/300/",
+  "age": 26,
+  "eyeColor": "blue",
+  "name": "Castaneda Santiago",
+  "gender": "male",
+  "company": "HOUSEDOWN",
+  "email": "castanedasantiago@housedown.com",
+  "phone": "+1 (860) 466-3451",
+  "address": "577 Delevan Street, Caron, Oregon, 3299",
+  "about": "Incididunt est reprehenderit nostrud incididunt eu veniam sunt dolore reprehenderit elit anim. Voluptate tempor laboris minim incididunt Lorem magna labore officia officia incididunt eiusmod. Culpa ex sunt eu duis irure eu tempor non ex. Ex occaecat sit dolore elit sint dolore quis duis. Velit magna commodo do in excepteur in reprehenderit eiusmod est mollit esse et. Nostrud id consequat ad magna anim commodo excepteur qui ullamco voluptate velit officia.\r\n",
+  "registered": "2016-04-15T05:47:42 -03:00",
+  "tags": [
+           "quis",
+           "commodo",
+           "tempor",
+           "dolore",
+           "excepteur",
+           "aute",
+           "exercitation"
+           ],
+  "friends": [
+              {
+              "id": 0,
+              "name": "Bethany Griffith"
+              },
+              {
+              "id": 1,
+              "name": "Eva Mckinney"
+              },
+              {
+              "id": 2,
+              "name": "Curry Faulkner"
+              }
+              ],
+  "favoriteFruit": "strawberry"
+  },
+  {
+  "id": "59c92a05f254a0a4dc44e3ee",
+  "isActive": false,
+  "balance": "$3,949.31",
+  "picture": "http://lorempixel.com/200/300/",
+  "age": 27,
+  "eyeColor": "green",
+  "name": "Mary Morrison",
+  "gender": "female",
+  "company": "COMCUR",
+  "email": "marymorrison@comcur.com",
+  "phone": "+1 (943) 459-3662",
+  "address": "890 Dakota Place, Chumuckla, Palau, 7448",
+  "about": "Adipisicing eiusmod anim esse ipsum ipsum id duis aute non voluptate velit cupidatat proident enim. Sit aute officia commodo velit exercitation irure esse minim ipsum excepteur et. Nulla laboris tempor reprehenderit sint ea amet mollit eu minim magna ea. Proident esse in occaecat Lorem sit magna do cupidatat ut laborum laboris irure do. Dolore sit exercitation et magna consectetur ipsum incididunt enim ad duis dolor id.\r\n",
+  "registered": "2014-11-18T04:09:38 -02:00",
+  "tags": [
+           "anim",
+           "excepteur",
+           "ea",
+           "magna",
+           "adipisicing",
+           "culpa",
+           "ex"
+           ],
+  "friends": [
+              {
+              "id": 0,
+              "name": "Becker Santos"
+              },
+              {
+              "id": 1,
+              "name": "Bowman Ball"
+              },
+              {
+              "id": 2,
+              "name": "Marsh Mueller"
+              }
+              ],
+  "favoriteFruit": "strawberry"
+  }
+  ]
