@@ -42,6 +42,8 @@ class DetailedPersonViewController: UIViewController {
         
         tagsView.delegate = self
         tagsView.dataSource = self
+        
+        
         self.activityIndicatorView.startAnimating()
     }
     
