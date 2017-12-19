@@ -83,20 +83,15 @@
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="v5h-fJ-Uwp">
-                                        <rect key="frame" x="27" y="28" width="20" height="20"/>
-                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="gei-ek-fgE" secondAttribute="trailing" id="2zl-3v-dvV"/>
                                     <constraint firstItem="gei-ek-fgE" firstAttribute="leading" secondItem="81Q-ui-NdL" secondAttribute="leading" id="4yc-yQ-qZ4"/>
-                                    <constraint firstItem="v5h-fJ-Uwp" firstAttribute="centerX" secondItem="81Q-ui-NdL" secondAttribute="centerX" id="BR8-tn-Jvd"/>
                                     <constraint firstAttribute="height" constant="75" id="BYg-fL-2lb"/>
                                     <constraint firstAttribute="width" constant="75" id="HNJ-zd-PS7"/>
                                     <constraint firstItem="gei-ek-fgE" firstAttribute="top" secondItem="81Q-ui-NdL" secondAttribute="top" id="PTb-KE-XUX"/>
                                     <constraint firstAttribute="bottom" secondItem="gei-ek-fgE" secondAttribute="bottom" id="oSf-su-pBc"/>
-                                    <constraint firstItem="v5h-fJ-Uwp" firstAttribute="centerY" secondItem="81Q-ui-NdL" secondAttribute="centerY" id="utO-UQ-a6B"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latonya Guy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7G-Pf-Xmf">
@@ -113,7 +108,7 @@
                                     <constraint firstAttribute="height" constant="20" id="shF-q8-c4N"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="41" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pcz-Ur-Gcd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="41" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pcz-Ur-Gcd">
                                 <rect key="frame" x="0.0" y="240" width="600" height="360"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -183,7 +178,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicatorView" destination="v5h-fJ-Uwp" id="3MP-UA-i1W"/>
                         <outlet property="descriptionView" destination="JxZ-N6-7if" id="z83-MT-8Zy"/>
                         <outlet property="detailsView" destination="Pcz-Ur-Gcd" id="zOR-4t-t3t"/>
                         <outlet property="imageView" destination="gei-ek-fgE" id="c0s-5p-dXI"/>

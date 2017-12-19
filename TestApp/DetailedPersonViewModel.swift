@@ -57,7 +57,7 @@ class DetailedPersonViewModel: NSObject {
             
             if let _tags = _data.tags {
                 for t in _tags{
-                    self.tags += "#"+t
+                    self.tags += " #"+t
                 }
             }
             

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //init local source
         let dataStore = PersonLocalSource()
-        dataStore.removeAll()
+        //dataStore.removeAll()
         
         appManager.dataStore = dataStore
         dataStore.delegate = appManager

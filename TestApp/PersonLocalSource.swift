@@ -53,8 +53,8 @@ class PersonLocalSource: NSObject, DataSource {
         }
     }
     
-    func fetchData(withID:String) -> PersonProtocol?{
-        return self.person(withID)
+    func fetchData(withID:String){
+        self.person(withID)
     }
     
     func fetchDataFromLocalSource(){
@@ -161,21 +161,30 @@ class PersonLocalSource: NSObject, DataSource {
     }
      
     
-    func person(withID:String) -> PersonProtocol?{
+    func person(withID:String){
         let fetchRequest = NSFetchRequest()
         let entity = NSEntityDescription.entityForName("Person", inManagedObjectContext: self.dataStore.managedObjectContext!)
         fetchRequest.entity = entity
         fetchRequest.predicate = NSPredicate(format: "userID == %@", withID)
         
-        var personToReturn:Person?
+        
         do {
             if let result = try dataStore.managedObjectContext?.executeFetchRequest(fetchRequest) as? [Person]{
-                personToReturn = result.first
+                if let _delegate = delegate, let f = result.first {
+                    _delegate.didFetchData(self, data: [f])
+                }
+            }else {
+                if let _delegate = delegate{
+                    _delegate.didFetchData(self, data: [PersonProtocol]())
+                }
             }
-            return personToReturn
+            
         }catch {
-            return nil
+            if let _delegate = delegate {
+                _delegate.didFetchData(self, data: nil)
+            }
         }
+
     }
     
     func removeAll(){

@@ -16,7 +16,6 @@ class DetailedPersonViewController: UIViewController {
     @IBOutlet weak var isActiveView: UIView!    
     @IBOutlet weak var descriptionView: UITextView!
     
-    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     private (set) var selectedPersonID:String?
     private (set) var viewModel:DetailedPersonViewModel?
     private var appManager = AppManager.sharedInstance
@@ -28,6 +27,7 @@ class DetailedPersonViewController: UIViewController {
             dispatch_async(dispatch_get_main_queue(), { [weak self] _ in
                 self?.viewModel = viewModel!
                 self?.setupView()
+                
             })
         })
         
@@ -41,9 +41,7 @@ class DetailedPersonViewController: UIViewController {
         
         
         detailsView.delegate = self
-        detailsView.dataSource = self         
-        
-        self.activityIndicatorView.startAnimating()
+        detailsView.dataSource = self
     }
     
     func setSelectedID(id:String){
@@ -56,14 +54,13 @@ class DetailedPersonViewController: UIViewController {
         self.descriptionView.text = self.viewModel!.about
         print(self.viewModel!.pictureURL)
         self.imageView.sd_setImageWithURL(self.viewModel!.pictureURL, placeholderImage: nil) { (image, error, cType, _) -> Void in
-            dispatch_async(dispatch_get_main_queue(), { _ in
-                //self.imageView.image = image
-                self.activityIndicatorView.stopAnimating()
+            dispatch_async(dispatch_get_main_queue(), { _ in 
                 self.imageView.layer.cornerRadius = 50
                 self.imageView.contentMode = .ScaleAspectFit
             })
         }
         self.tagsView.text = viewModel?.tags
+        detailsView.reloadData()
     }
     
 }

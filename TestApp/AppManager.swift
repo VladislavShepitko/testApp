@@ -16,7 +16,7 @@ import SwiftyJSON
 @objc protocol DataSource:class {
     var delegate:DataSourceDelegate? {get set}
     func fetchData()
-    func fetchData(withID:String) -> PersonProtocol?
+    func fetchData(withID:String)
 }
 
 class AppManager: NSObject {
@@ -49,41 +49,21 @@ class AppManager: NSObject {
     ///fetch detailed information about person with ID
     func fetchPerson(withID id: String){
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) { [weak self] _ in
-            if let result = self?.dataStore?.fetchData(id){
-                //and notify that view mode did change
-                self?.personViewModel.value = DetailedPersonViewModel(personData: result)
-            }else {
-                self?.personViewModel.value = nil
-            }
-        }
-        
+            self?.dataStore?.fetchData(id)
+        }        
     }
     
 }
 
 extension AppManager : DataSourceDelegate {
     func didFetchData(dataStore:DataSource, data:[PersonProtocol]?){
-        /*if dataStore is RemoteDataStore {
-            //inset data to local store
-            if let _data = data where _data.count > 0 {
-                for newPerson in _data {
-                    self.dataStore?.addPerson(newPerson)
-                }
-                //fetch this data from loal store
-                self.dataStore?.fetchData()
-                return
-            }
-        }else if dataStore is AppDataStore {
-            if data == nil || data?.count == 0 {
-                //this is mark that we don't have any data, 
-                //update view model with nil and start download data
-                personListViewModel.value = nil
-                //self.remoteDataStore?.fetchData()
-            }
-        }*/
         //update view model from local store
         if let _data = data {
-            personListViewModel.value = PersonListViewModel(with: _data)
+            if _data.count > 1{
+                personListViewModel.value = PersonListViewModel(with: _data)
+            }else if _data.count > 0 {
+                personViewModel.value = DetailedPersonViewModel(personData: _data.first)
+            }
         }else {
             personListViewModel.value = nil
         }
