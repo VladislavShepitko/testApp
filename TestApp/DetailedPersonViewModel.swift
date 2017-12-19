@@ -15,11 +15,9 @@ class DetailedPersonViewModel: NSObject {
     var isActiveColor: UIColor?
     var pictureURL: NSURL?
     var about: String?
-    
-    
     var friends = String()
+    var tags = String()
     
-    private var tags:[String] = []
     private var items:[Item] = []
     
     
@@ -59,7 +57,7 @@ class DetailedPersonViewModel: NSObject {
             
             if let _tags = _data.tags {
                 for t in _tags{
-                    self.tags.append(t )
+                    self.tags += "#"+t
                 }
             }
             
@@ -95,9 +93,6 @@ extension DetailedPersonViewModel {
     func numberOfItems() -> Int{
         return items.count
     }
-    func numberOfTags() -> Int{
-        return tags.count
-    }
     
     func titleForItemAtIndexPath(path:NSIndexPath) -> String? {
         let value = items[path.item].key.rawValue
@@ -106,8 +101,5 @@ extension DetailedPersonViewModel {
     
     func descriptionForItemAtIndexPath(path:NSIndexPath) -> String? {
         return items[path.item].value
-    }
-    func tagForItemAtIndexPath(path:NSIndexPath) -> String? {
-        return "#"+self.tags[path.item]
     }
 }

@@ -48,12 +48,15 @@ class AppManager: NSObject {
     
     ///fetch detailed information about person with ID
     func fetchPerson(withID id: String){
-        if let result = dataStore?.fetchData(id){
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) { [weak self] _ in
+            if let result = self?.dataStore?.fetchData(id){
                 //and notify that view mode did change
-                personViewModel.value = DetailedPersonViewModel(personData: result)
+                self?.personViewModel.value = DetailedPersonViewModel(personData: result)
             }else {
-                personViewModel.value = nil
-        }        
+                self?.personViewModel.value = nil
+            }
+        }
+        
     }
     
 }

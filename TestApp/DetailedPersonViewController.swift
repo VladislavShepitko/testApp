@@ -10,7 +10,7 @@ import UIKit
 class DetailedPersonViewController: UIViewController {
 
     @IBOutlet weak var nameView: UILabel!
-    @IBOutlet weak var tagsView: UICollectionView!
+    @IBOutlet weak var tagsView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var detailsView: UITableView!
     @IBOutlet weak var isActiveView: UIView!    
@@ -24,10 +24,13 @@ class DetailedPersonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        appManager.personViewModel.subscribe({ [unowned self] viewModel in
-            self.viewModel = viewModel!
-            self.setupView()
+        appManager.personViewModel.subscribe({ [weak self] viewModel in
+            dispatch_async(dispatch_get_main_queue(), { [weak self] _ in
+                self?.viewModel = viewModel!
+                self?.setupView()
+            })
         })
+        
         if let id = self.selectedPersonID {
             appManager.fetchPerson(withID: id)
         }
@@ -38,11 +41,7 @@ class DetailedPersonViewController: UIViewController {
         
         
         detailsView.delegate = self
-        detailsView.dataSource = self
-        
-        tagsView.delegate = self
-        tagsView.dataSource = self
-        
+        detailsView.dataSource = self         
         
         self.activityIndicatorView.startAnimating()
     }
@@ -55,14 +54,16 @@ class DetailedPersonViewController: UIViewController {
         self.nameView.text = viewModel?.name
         self.isActiveView.backgroundColor = viewModel?.isActiveColor
         self.descriptionView.text = self.viewModel!.about
-        
-        self.imageView.sd_setImageWithURL(self.viewModel!.pictureURL, placeholderImage: UIImage(named: "no-user-photo")) { (image, error, cType, _) -> Void in
+        print(self.viewModel!.pictureURL)
+        self.imageView.sd_setImageWithURL(self.viewModel!.pictureURL, placeholderImage: nil) { (image, error, cType, _) -> Void in
             dispatch_async(dispatch_get_main_queue(), { _ in
+                //self.imageView.image = image
                 self.activityIndicatorView.stopAnimating()
                 self.imageView.layer.cornerRadius = 50
+                self.imageView.contentMode = .ScaleAspectFit
             })
         }
-        
+        self.tagsView.text = viewModel?.tags
     }
     
 }
@@ -76,22 +77,5 @@ extension DetailedPersonViewController : UITableViewDataSource, UITableViewDeleg
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.numberOfItems() ?? 0
-    }
-}
-extension DetailedPersonViewController : UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TagCellID", forIndexPath: indexPath) as! TagCell
-        cell.tagView.text = viewModel?.tagForItemAtIndexPath(indexPath)
-        return cell
-    }
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.numberOfTags() ?? 0
-    }
-}
-extension DetailedPersonViewController :UICollectionViewDelegateFlowLayout {
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let tag = Int((viewModel!.tagForItemAtIndexPath(indexPath)?.characters.count)!)
-        print(tag)
-        return CGSize(width: tag * 10, height: 15)
     }
 }
